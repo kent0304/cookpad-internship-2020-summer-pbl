@@ -1,0 +1,31 @@
+<%= form_with(model: post_form, scope: :post, url: form_url, local: true) do |form| %>
+    <% if post_form.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(post_form.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+            <% post_form.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= form.label "料理名" %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= form.label "一言どうぞ" %>
+        <%= form.text_field :description %>
+    </div>
+
+    <div class="field">
+        <%= form.label "料理の写真" %>
+        <%= form.file_field :image, accept: "image/png,image/gif,image/jpeg" %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>

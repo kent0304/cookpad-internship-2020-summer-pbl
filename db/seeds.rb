@@ -1,7 +1,10 @@
+User.destroy_all
+Image.destroy_all
+Post.destroy_all
 
 users = []
 3.times do |n|
-    users << User.create!(email: "cookpad#{n}@test.com",name: "クックパッド#{n}") 
+    users << User.create!(name: "クックパッド#{n}", password_digest: DigestGenerator.digest("password")) 
 end
 
 image = Image.create!(
