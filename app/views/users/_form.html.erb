@@ -1,34 +1,46 @@
-<%= form_with(model: user_form, scope: :user, url: form_url, local: true) do |form| %>
-    <% if user_form.errors.any? %>
-        <div id="error_explanation">
-        <h2><%= user_form.errors.count %>つのエラー。この情報ではユーザー登録ができません。 </h2>
+<div class="signup">
+    <div class="signup">
+        <%= form_with(model: user_form, scope: :user, url: form_url, local: true) do |form| %>
+            <% if user_form.errors.any? %>
+                <div id="error_explanation">
+                <h2><%= user_form.errors.count %>つのエラーが確認されました。この情報ではユーザー登録ができません。 </h2>
 
-        <ul>
-            <% user_form.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+                <ul>
+                    <% user_form.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+                </div>
             <% end %>
-        </ul>
-        </div>
-    <% end %>
 
-    <div class="field">
-        <%= form.label "名前" %>
-        <%= form.text_field :name %>
+            <div class="field">
+                <%= form.label "　ニックネーム　　" %>
+                <%= form.text_field :name, placeholder: "ニックネーム" %>
+            </div>
+
+            <div class="field">
+                <%= form.label "　パスワード　　　" %>
+                <%= form.password_field :password, placeholder: "パスワード" %>
+            </div>
+
+            <div class="field">
+                <%= form.label "パスワード（確認）" %>
+                <%= form.password_field :password_confirmation, placeholder: "パスワード（確認）" %>
+            </div>
+
+            <div class="field">
+                <%= form.label "　　自己紹介　　　" %>
+                <%= form.text_field :intro, placeholder: "自己紹介" %>
+            </div>
+
+            <div class="field">
+                <%= form.label "プロフィール写真" %>
+                <%= form.file_field :image, accept: "image/png,image/gif,image/jpeg" %>
+            </div>
+
+            <div class="action">
+                <%= form.submit :class => "signup_btn", value: "登録" %>
+            </div>
+        <% end %>
     </div>
-
-    <div class="field">
-        <%= form.label "パスワード" %>
-        <%= form.password_field :password %>
-    </div>
-
-    <div class="field">
-        <%= form.label "パスワード確認" %>
-        <%= form.password_field :password_confirmation %>
-    </div>
-
-    <div class="action">
-        <%= form.submit %>
-    </div>
-
-
-<% end %>
+</div>

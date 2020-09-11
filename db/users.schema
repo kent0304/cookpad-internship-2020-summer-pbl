@@ -1,6 +1,8 @@
 create_table "users", id: :integer, force: :cascade do |t|
     t.string   "name",            limit: 255, null: false
     t.string   "password_digest", limit: 255, null: false
+    t.integer  "image_id" ,             null: false     
+    t.text     "intro",             limit: 512
 
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false

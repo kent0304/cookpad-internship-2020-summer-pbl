@@ -1,3 +1,103 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.my_profile {
+    height: 40vh;
+}
+
+.profile_img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover; 
+    float: right;
+}
+
+.profile_intro {
+    padding-top: 20px;
+}
+
+// ユーザーフォーム
+.signup_title {
+    padding-top: 15vh;
+    padding-left: 45vw;
+    font-size: 5vh;
+}
+
+.post_title {
+    padding-top: 15vh;
+    padding-left: 39vw;
+    font-size: 5vh;
+}
+.signup_title_edit {
+    padding-top: 15vh;
+    padding-left: 40vw;
+    font-size: 5vh;
+}
+
+.signup {
+    padding-top: 1vh;
+    padding-left: 17vw;
+}
+
+.post_food {
+    padding-top: 2vh;
+    padding-left: 40vw;
+    .field {
+        padding: 20px ;
+    }
+    .signup_btn {
+        margin: 20px 0 0 130px;
+    }
+}
+
+.signup_container {
+    background-image: url("table.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color:rgba(255,255,255,0.7);
+    background-blend-mode:lighten;
+    height: 88vh;
+    width: 100vw;
+    padding-top: -15vh;
+}
+
+input[type="text"] {
+    width: 300px;
+    height: 40px;
+}
+
+input[type="password"] {
+    width: 300px;
+    height: 40px;
+}
+
+.field {
+    padding: 5px;
+}
+
+.signup_btn {
+    padding: 20px;
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 17pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 13px 23px;   /* 余白       */
+    background    : #4da6ff;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 5px 5px 18px #666666;  /* 影の設定 */
+    border        : 2px solid #4da6ff;    /* 枠の指定 */
+}
+
+.signup_btn:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #4da6ff;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}
+
+.action {
+    padding: 20px 0px 0px 180px;
+}

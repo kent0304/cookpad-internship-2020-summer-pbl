@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @user.name %></h1>
+<div class="my_profile ui grid">
+    <div class="seven wide column">
+        <%= image_tag(image_path(@user.image), :class => "profile_img") %>
+    </div>
+    <div class="nine wide column">
+        <h1><%= @user.name %></h1>
+        <%= link_to 'プロフィールの編集', edit_user_path(@user) %>
+        <div class="profile_intro">
+            <p><%= @user.intro %></p>
+        </div>
+    </div>
+</div>
 
-<%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
-<%= link_to 'ユーザー一覧', users_path %>
-
-<ul>
-    <% @user.posts.each do |post| %>
-        <li>
-            <h3><%= post.name %></h3>
-            <p><%= post.description %></p>
-            <%= link_to "修正する", edit_post_path(post) %>
-            <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-            <%= image_tag(image_path(post.image)) %>
-        </li>
-    <% end %>
-
-</ul>
+<div class ="post_list">
+    <ul>
+        <div class="ui four column grid">
+            <% @user.posts.each do |post| %>
+                <li class="column"> 
+                    <%= link_to "修正する", edit_post_path(post) %>
+                    <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                    <%= image_tag(image_path(post.image), :class => "cooking_img") %>
+                    <h3><%= post.name %></h3>
+                </li>
+            <% end %>
+        </div>
+    </ul>
+</div>

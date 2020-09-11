@@ -1,0 +1,24 @@
+@import "semantic-ui";
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+
+.container {
+    padding-top: 12vh;
+}
+
+// 共通部分
+.title {
+    font-size: 4vh;
+    padding: 1vh 3vw;
+
+}
+
+// みんなの料理
+.post_list {
+    padding: 20px 0px 10px 100px;
+}
+
+.cooking_img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; 
+}

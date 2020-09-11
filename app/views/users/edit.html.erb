@@ -1,5 +1,5 @@
-<h1>プロフィール情報を修正する</h1>
-
-<%= render 'form', user_form: @user_form, form_url: user_path(@user) %>
-
-<%= link_to 'プロフィールに戻る' %>
+<div class="signup_container">
+    <h1 class="signup_title_edit">プロフィールの修正</h1>
+    <%= render 'form', user_form: @user_form, form_url: user_path(@user) %>
+    <%= link_to 'プロフィールに戻る' %>
+</div>

@@ -1,15 +1,29 @@
-<h1>投稿一覧</h1>
-<ul>
-    <% @posts.each do |post| %>
-        <li>
-            <h3><%= post.name %> by <%= post.user.name %></h3>
-            <p><%= post.description %></p>
-            <%= link_to "修正する", edit_post_path(post) %>
-            <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-            <%= image_tag(image_path(post.image)) %>
-        </li>
-    <% end %>
-</ul>
-
+<h1 class="title">作った料理をみんなに見てもらおう</h1>
 <%= link_to "投稿する", new_post_path %>
+<h1 class="title">みんなの料理</h1>
+<div class ="post_list">
+    <ul class="ui four column grid">
+        <% @posts.each do |post| %>
+            <li class="column">
+                
+                <%= image_tag(image_path(post.image), :class => "cooking_img") %>
+                <h3><%= post.name %></h3>
+                <h4>by <%= link_to post.user.name, user_path(post.user)%></h4>
+                <h5>美味しそう：<%= post.oishisos.count %></h5>
+                <% if current_user.already_oishisoed?(post) %>
+                    
+                <% else %>
+                    <%= button_to '美味しそう', post_oishisos_path(post) %>
+                <% end %>
+                <h5>レシピを教えて！：<%= post.tellmes.count %></h5>
+                <% if current_user.already_tellmeed?(post) %>
+                    
+                <% else %>
+                    <%= button_to 'レシピを教えて！', post_tellmes_path(post) %>
+                <% end %>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
 

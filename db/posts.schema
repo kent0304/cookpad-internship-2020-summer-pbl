@@ -2,7 +2,6 @@ create_table "posts", id: :integer, force: :cascade do |t|
     t.integer   "user_id",                    null: false
     t.integer   "image_id",                    null: false
     t.string    "name",           limit: 255, null: false
-    t.text      "description",    limit: 512, null: false 
 
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false

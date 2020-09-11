@@ -1,24 +1,21 @@
 class PostForm
     include ActiveModel::Validations
 
-    attr_accessor :name, :description, :image
+    attr_accessor :name, :image
     attr_reader :post 
 
     validates :name, presence: true, length: { maximum: 255 }
-    validates :description, presence: true, length: { maximum: 512 } 
     validate :validate_image
 
     def initialize(post)
         @post = post 
         # 必要な情報を渡す
         @name = post.name 
-        @description = post.description 
         @image_id = post.image_id 
     end 
 
     def apply(params)
         @name = params[:name]
-        @description = params[:description]
     
         @image_upload = true
         @image_body = params[:image].read 
@@ -29,7 +26,6 @@ class PostForm
         return false unless valid?
 
         @post.name = @name 
-        @post.description = @description 
 
         image = Image.create!(body: @image_body, filename: @image_filename)
         @post.image_id = image.id 
